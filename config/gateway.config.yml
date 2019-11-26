@@ -1,0 +1,58 @@
+http:
+  port: 8000
+admin:
+  port: 9876
+  host: localhost
+apiEndpoints:
+  api:
+    host: '*'
+    paths:
+      - /user
+      - /session
+      - /post
+      - /reply
+      - /report
+      - /reshare
+    methods:
+      - GET
+      - POST
+serviceEndpoints:
+  user_service:
+    url: 'http://localhost:8080'
+  community_service:
+    url: 'http://localhost:8081'
+policies:
+  - basic-auth
+  - cors
+  - expression
+  - key-auth
+  - log
+  - oauth2
+  - proxy
+  - rate-limit
+pipelines:
+  default:
+    apiEndpoints:
+      - api
+    policies:
+      - proxy:
+          condition:
+            name: pathExact
+            path: /user
+          action:
+            serviceEndpoint: user_service
+#      - condition:
+#          name: pathExact
+#          path: /session
+#        action:
+#          serviceEndpoint: user_service
+#      - condition:
+#          name: pathExact
+#          path: /post
+#        action:
+#          serviceEndpoint: community_service
+#      - condition:
+#          name: pathExact
+#          path: /reply
+#        action:
+#          serviceEndpoint: community_service
