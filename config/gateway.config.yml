@@ -16,6 +16,7 @@ apiEndpoints:
     methods:
       - GET
       - POST
+      - PUT
 serviceEndpoints:
   user_service:
     url: 'http://localhost:8080'
@@ -41,18 +42,21 @@ pipelines:
             path: /user
           action:
             serviceEndpoint: user_service
-#      - condition:
-#          name: pathExact
-#          path: /session
-#        action:
-#          serviceEndpoint: user_service
-#      - condition:
-#          name: pathExact
-#          path: /post
-#        action:
-#          serviceEndpoint: community_service
-#      - condition:
-#          name: pathExact
-#          path: /reply
-#        action:
-#          serviceEndpoint: community_service
+      - proxy:
+          condition:
+            name: pathMatch
+            pattern: /session*
+          action:
+            serviceEndpoint: user_service
+      - proxy:
+          condition:
+            name: pathExact
+            path: /post
+          action:
+            serviceEndpoint: community_service
+      - proxy:
+          condition:
+            name: pathExact
+            path: /reply
+          action:
+            serviceEndpoint: community_service
