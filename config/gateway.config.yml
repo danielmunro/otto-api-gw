@@ -10,13 +10,11 @@ apiEndpoints:
       - /user
       - /session
       - /post
+      - /post/:uuid
+      - /post/follows/:uuid
       - /reply
       - /report
       - /reshare
-    methods:
-      - GET
-      - POST
-      - PUT
 serviceEndpoints:
   user_service:
     url: 'http://localhost:8080'
@@ -36,6 +34,11 @@ pipelines:
     apiEndpoints:
       - api
     policies:
+      - cors:
+          - action:
+              origin: http://localhost:3000
+              credentials: true
+              methods: 'HEAD,PUT,PATCH,POST,DELETE,OPTIONS'
       - proxy:
           condition:
             name: pathExact
@@ -50,8 +53,14 @@ pipelines:
             serviceEndpoint: user_service
       - proxy:
           condition:
-            name: pathExact
-            path: /post
+            name: pathMatch
+            pattern: /post*
+          action:
+            serviceEndpoint: community_service
+      - proxy:
+          condition:
+            name: pathMatch
+            pattern: /post/follows/:uuid
           action:
             serviceEndpoint: community_service
       - proxy:
