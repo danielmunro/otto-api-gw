@@ -12,6 +12,7 @@ const targets = {
 
 app.use('/user/:uuid/suggested-follows', proxy({ target: targets.communityService }));
 app.use('/user/:uuid/posts', proxy({ target: targets.communityService }));
+app.use('/user/:uuid/new-posts', proxy({ target: targets.communityService }));
 app.use('/user/:uuid/follow-posts', proxy({ target: targets.communityService }));
 app.use('/user/:uuid/follows', proxy({ target: targets.communityService }));
 app.use('/user/:uuid/suggested-follows', proxy({ target: targets.communityService }));
