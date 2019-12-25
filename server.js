@@ -7,9 +7,11 @@ app.use(cors());
 
 const targets = {
   communityService: 'http://localhost:8081',
-  userService: 'http://localhost:8080'
+  userService: 'http://localhost:8080',
+  imageService: 'http://localhost:8082',
 };
 
+// community service
 app.use('/user/:uuid/suggested-follows', proxy({ target: targets.communityService }));
 app.use('/user/:uuid/posts', proxy({ target: targets.communityService }));
 app.use('/user/:uuid/new-posts', proxy({ target: targets.communityService }));
@@ -19,6 +21,15 @@ app.use('/user/:uuid/suggested-follows', proxy({ target: targets.communityServic
 app.use('/post', proxy({ target: targets.communityService }));
 app.use('/reply', proxy({ target: targets.communityService }));
 
+// image service
+app.use('/image', proxy({ target: targets.imageService }));
+app.use('/image/:link', proxy({ target: targets.imageService }));
+app.use('/album', proxy({ target: targets.imageService }));
+app.use('/album/:link', proxy({ target: targets.imageService }));
+app.use('/album/:link/image', proxy({ target: targets.imageService }));
+app.use('/user/:uuid/image', proxy({ target: targets.imageService }));
+
+// user service
 app.use('/session', proxy({ target: targets.userService }));
 app.use('/user', proxy({ target: targets.userService }));
 
