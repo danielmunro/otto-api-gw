@@ -6,9 +6,9 @@ const app = express();
 app.use(cors());
 
 const targets = {
-  communityService: 'http://localhost:8081',
-  userService: 'http://localhost:8080',
-  imageService: 'http://localhost:8082',
+  communityService: 'http://community_service:8081',
+  userService: 'http://user_service:8080',
+  imageService: 'http://image_service:8082',
 };
 
 // community service
