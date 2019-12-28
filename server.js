@@ -1,14 +1,16 @@
 import express from 'express';
 import proxy from 'http-proxy-middleware';
 import cors from 'cors';
+import dotenv from 'dotenv';
 
+dotenv.config();
 const app = express();
 app.use(cors());
 
 const targets = {
-  communityService: 'http://community_service:8081',
-  userService: 'http://user_service:8080',
-  imageService: 'http://image_service:8082',
+  communityService: `http://${process.env.TARGET_COMMUNITY_SERVICE}`,
+  userService: `http://${process.env.TARGET_USER_SERVICE}`,
+  imageService: `http://${process.env.TARGET_IMAGE_SERVICE}`,
 };
 
 // community service
