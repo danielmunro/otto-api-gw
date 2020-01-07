@@ -13,6 +13,11 @@ const targets = {
   imageService: `http://${process.env.TARGET_IMAGE_SERVICE}`,
 };
 
+app.use((req, res, next) => {
+    console.log(`[${new Date().toISOString()}] ${req.method} ${req.originalUrl}`);
+    next();
+});
+
 // community service
 app.use('/user/:uuid/suggested-follows', proxy({ target: targets.communityService }));
 app.use('/user/:uuid/posts', proxy({ target: targets.communityService }));
