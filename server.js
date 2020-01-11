@@ -6,6 +6,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 const app = express();
 app.use(cors());
+app.enable('trust proxy');
 
 const targets = {
   communityService: `http://${process.env.TARGET_COMMUNITY_SERVICE}`,
