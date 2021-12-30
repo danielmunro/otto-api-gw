@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-gw
+spec:
+  minReadySeconds: 3
+  revisionHistoryLimit: 5
+  progressDeadlineSeconds: 60
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: api-gw
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9797"
+      labels:
+        app: api-gw
+    spec:
+      containers:
+      - name: otto-api-gw
+        image: quay.io/danielmunro/otto-api-gw:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+          - containerPort: 8000
+            name: api-gw
+        env:
+          - name: API_ENDPOINT
+            value: localhost
+          - name: TARGET_COMMUNITY_SERVICE
+              value: "$(COMMUNITY_SERVICE_HOST):8081"
+          - name: TARGET_USER_SERVICE
+            value: "$(USER_SERVICE_SERVICE_HOST):8080"
+          - name: TARGET_IMAGE_SERVICE
+            value: "$(IMAGE_SERVICE_HOST):8082"
+          - name: TARGET_UI
+            value: "$(UI_SERVICE_HOST):3000"
+#        livenessProbe:
+#          exec:
+#            command:
+#            - podcli
+#            - check
+#            - http
+#            - localhost:3000/healthz
+#          initialDelaySeconds: 5
+#          timeoutSeconds: 5
+#        readinessProbe:
+#          exec:
+#            command:
+#            - podcli
+#            - check
+#            - http
+#            - localhost:3000/readyz
+#          initialDelaySeconds: 5
+#          timeoutSeconds: 5
+        resources:
+          limits:
+            cpu: 2000m
+            memory: 512Mi
+          requests:
+            cpu: 100m
+            memory: 64Mi
