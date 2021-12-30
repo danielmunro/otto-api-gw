@@ -31,14 +31,14 @@ spec:
         env:
           - name: API_ENDPOINT
             value: localhost
-          - name: TARGET_COMMUNITY_SERVICE
-              value: "$(COMMUNITY_SERVICE_HOST):8081"
-          - name: TARGET_USER_SERVICE
-            value: "$(USER_SERVICE_SERVICE_HOST):8080"
-          - name: TARGET_IMAGE_SERVICE
-            value: "$(IMAGE_SERVICE_HOST):8082"
-          - name: TARGET_UI
-            value: "$(UI_SERVICE_HOST):3000"
+#          - name: TARGET_COMMUNITY_SERVICE
+#              value: "$(COMMUNITY_SERVICE_HOST):8081"
+#          - name: TARGET_USER_SERVICE
+#            value: "$(USER_SERVICE_SERVICE_HOST):8080"
+#          - name: TARGET_IMAGE_SERVICE
+#            value: "$(IMAGE_SERVICE_HOST):8082"
+#          - name: TARGET_UI
+#            value: "$(UI_SERVICE_HOST):3000"
 #        livenessProbe:
 #          exec:
 #            command:
