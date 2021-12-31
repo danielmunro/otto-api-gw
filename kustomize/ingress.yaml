@@ -5,6 +5,11 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
 spec:
+  defaultBackend:
+    service:
+      name: api-gw
+      port:
+        number: 8000
   rules:
     - host: otto.localhost
       http:
