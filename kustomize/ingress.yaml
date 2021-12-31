@@ -12,11 +12,11 @@ spec:
         number: 8000
   rules:
     - http:
-      paths:
-        - pathType: Prefix
-          path: /
-          backend:
-            service:
-              name: api-gw
-              port:
-                number: 8000
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: api-gw
+                port:
+                  number: 8000
