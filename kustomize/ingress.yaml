@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: web-ingress
   annotations:
-    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   defaultBackend:
     service:
@@ -11,13 +11,12 @@ spec:
       port:
         number: 8000
   rules:
-    - host: otto.localhost
-      http:
-        paths:
-          - pathType: Prefix
-            path: /
-            backend:
-              service:
-                name: api-gw
-                port:
-                  number: 8000
+    - http:
+      paths:
+        - pathType: Prefix
+          path: /
+          backend:
+            service:
+              name: api-gw
+              port:
+                number: 8000
