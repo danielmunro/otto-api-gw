@@ -37,8 +37,8 @@ spec:
 #            value: "$(USER_SERVICE_SERVICE_HOST):8080"
 #          - name: TARGET_IMAGE_SERVICE
 #            value: "$(IMAGE_SERVICE_HOST):8082"
-#          - name: TARGET_UI
-#            value: "$(UI_SERVICE_HOST):3000"
+          - name: TARGET_UI
+            value: "localhost:3000"
 #        livenessProbe:
 #          exec:
 #            command:
