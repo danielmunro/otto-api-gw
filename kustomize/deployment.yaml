@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: otto-api-gw
-        image: quay.io/danielmunro/otto-api-gw:latest
+        image: ghcr.io/danielmunro/otto-ui:latest
         imagePullPolicy: IfNotPresent
         ports:
           - containerPort: 8000
@@ -39,24 +39,6 @@ spec:
 #            value: "$(IMAGE_SERVICE_HOST):8082"
           - name: TARGET_UI
             value: "ui:3000"
-#        livenessProbe:
-#          exec:
-#            command:
-#            - podcli
-#            - check
-#            - http
-#            - localhost:3000/healthz
-#          initialDelaySeconds: 5
-#          timeoutSeconds: 5
-#        readinessProbe:
-#          exec:
-#            command:
-#            - podcli
-#            - check
-#            - http
-#            - localhost:3000/readyz
-#          initialDelaySeconds: 5
-#          timeoutSeconds: 5
         resources:
           limits:
             cpu: 2000m
@@ -64,3 +46,5 @@ spec:
           requests:
             cpu: 100m
             memory: 64Mi
+      imagePullSecrets:
+      - name: dockerconfigjson-github-com
