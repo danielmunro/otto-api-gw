@@ -1,0 +1,22 @@
+on:
+  push:
+    branches:
+      - main
+jobs:
+  publish-gpr:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          registry-url: https://npm.pkg.github.com/
+      - run: npm ci
+      - run: |
+          echo $CR_PAT | docker login ghcr.io -u danielmunro --password-stdin
+        env:
+          CR_PAT: ${{ secrets.CR_PAT }}
+      - run: docker build . --tag ghcr.io/danielmunro/otto-api-gw:latest
+      - run: docker push ghcr.io/danielmunro/otto-api-gw:latest
