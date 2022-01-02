@@ -24,7 +24,7 @@ spec:
       containers:
       - name: otto-api-gw
         image: ghcr.io/danielmunro/otto-ui:latest
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         ports:
           - containerPort: 8000
             name: api-gw
