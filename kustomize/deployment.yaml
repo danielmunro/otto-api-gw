@@ -41,7 +41,7 @@ spec:
             value: "ui:3000"
         resources:
           limits:
-            cpu: 2000m
+            cpu: 250m
             memory: 512Mi
           requests:
             cpu: 100m
