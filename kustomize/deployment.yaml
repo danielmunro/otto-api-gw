@@ -33,7 +33,7 @@ spec:
           - name: API_ENDPOINT
             value: localhost
           - name: TARGET_COMMUNITY_SERVICE
-              value: "community_service:8081"
+            value: "community_service:8081"
           - name: TARGET_USER_SERVICE
             value: "user_service:8080"
           - name: TARGET_IMAGE_SERVICE
