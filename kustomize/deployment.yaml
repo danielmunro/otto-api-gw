@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: otto-api-gw
-        image: ghcr.io/danielmunro/otto-ui:latest
+        image: ghcr.io/danielmunro/otto-api-gw:latest
         imagePullPolicy: Always
         ports:
           - containerPort: 8000
