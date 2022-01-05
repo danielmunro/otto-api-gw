@@ -27,6 +27,7 @@ spec:
         imagePullPolicy: Always
         ports:
           - containerPort: 8000
+            targetPort: 3000
             name: api-gw
         env:
           - name: API_ENDPOINT
