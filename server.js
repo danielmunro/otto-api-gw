@@ -29,6 +29,7 @@ app.use('/user/:uuid/follows', proxy({ target: targets.communityService }));
 app.use('/user/:uuid/suggested-follows', proxy({ target: targets.communityService }));
 app.use('/post', proxy({ target: targets.communityService }));
 app.use('/reply', proxy({ target: targets.communityService }));
+app.use('/follow/:uuid', proxy({ target: targets.communityService }));
 
 // image service
 app.use('/image', proxy({ target: targets.imageService }));
