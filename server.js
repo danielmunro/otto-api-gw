@@ -21,13 +21,13 @@ app.use((req, res, next) => {
 });
 
 // community service
-app.use('/user/:uuid/suggested-follows', proxy({ target: targets.communityService }));
-app.use('/user/:uuid/posts', proxy({ target: targets.communityService }));
-app.use('/user/:uuid/new-posts', proxy({ target: targets.communityService }));
-app.use('/user/:uuid/follow-posts', proxy({ target: targets.communityService }));
-app.use('/user/:uuid/follows', proxy({ target: targets.communityService }));
-app.use('/user/:uuid/followers', proxy({ target: targets.communityService }));
-app.use('/user/:uuid/suggested-follows', proxy({ target: targets.communityService }));
+app.use('/user/:username/suggested-follows', proxy({ target: targets.communityService }));
+app.use('/user/:username/posts', proxy({ target: targets.communityService }));
+app.use('/user/:username/new-posts', proxy({ target: targets.communityService }));
+app.use('/user/:username/follow-posts', proxy({ target: targets.communityService }));
+app.use('/user/:username/follows', proxy({ target: targets.communityService }));
+app.use('/user/:username/followers', proxy({ target: targets.communityService }));
+app.use('/user/:username/suggested-follows', proxy({ target: targets.communityService }));
 app.use('/post', proxy({ target: targets.communityService }));
 app.use('/reply', proxy({ target: targets.communityService }));
 app.use('/follow/:uuid', proxy({ target: targets.communityService }));
@@ -38,7 +38,8 @@ app.use('/image/:link', proxy({ target: targets.imageService }));
 app.use('/album', proxy({ target: targets.imageService }));
 app.use('/album/:link', proxy({ target: targets.imageService }));
 app.use('/album/:link/image', proxy({ target: targets.imageService }));
-app.use('/user/:uuid/image', proxy({ target: targets.imageService }));
+app.use('/user/:username/image', proxy({ target: targets.imageService }));
+app.use('/user/:username/album', proxy({ target: targets.imageService }));
 
 // user service
 app.use('/session', proxy({ target: targets.userService }));
