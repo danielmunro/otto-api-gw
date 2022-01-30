@@ -34,10 +34,10 @@ app.use('/follow/:uuid', proxy({ target: targets.communityService }));
 
 // image service
 app.use('/image', proxy({ target: targets.imageService }));
-app.use('/image/:link', proxy({ target: targets.imageService }));
+app.use('/image/:uuid', proxy({ target: targets.imageService }));
 app.use('/album', proxy({ target: targets.imageService }));
-app.use('/album/:link', proxy({ target: targets.imageService }));
-app.use('/album/:link/image', proxy({ target: targets.imageService }));
+app.use('/album/:uuid', proxy({ target: targets.imageService }));
+app.use('/album/:uuid/image', proxy({ target: targets.imageService }));
 app.use('/user/:username/image', proxy({ target: targets.imageService }));
 app.use('/user/:username/album', proxy({ target: targets.imageService }));
 
