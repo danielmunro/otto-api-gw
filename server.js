@@ -31,6 +31,7 @@ app.use('/user/:username/suggested-follows', proxy({ target: targets.communitySe
 app.use('/post/:uuid/like', proxy({ target: targets.communityService }));
 app.use('/post/:uuid', proxy({ target: targets.communityService }));
 app.use('/post', proxy({ target: targets.communityService }));
+app.use('/share', proxy({ target: targets.communityService }));
 app.use('/reply', proxy({ target: targets.communityService }));
 app.use('/follow/:uuid', proxy({ target: targets.communityService }));
 
