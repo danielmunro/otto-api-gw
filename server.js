@@ -23,6 +23,7 @@ app.use((req, res, next) => {
 // community service
 app.use('/user/:username/suggested-follows', proxy({ target: targets.communityService }));
 app.use('/user/:username/posts', proxy({ target: targets.communityService }));
+app.use('/user/:username/like', proxy({ target: targets.communityService }));
 app.use('/user/:username/new-posts', proxy({ target: targets.communityService }));
 app.use('/user/:username/follow-posts', proxy({ target: targets.communityService }));
 app.use('/user/:username/follows', proxy({ target: targets.communityService }));
