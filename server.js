@@ -48,6 +48,7 @@ app.use('/user/:username/album', proxy({ target: targets.imageService }));
 // user service
 app.use('/session', proxy({ target: targets.userService }));
 app.use('/user', proxy({ target: targets.userService }));
+app.use('/ban/:username', proxy({ target: targets.userService }));
 
 // ui
 app.use('/', proxy({ target: targets.ui }));
