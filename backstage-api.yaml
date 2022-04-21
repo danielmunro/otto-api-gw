@@ -7,3 +7,4 @@ spec:
   type: openapi
   lifecycle: production
   owner: dev-team
+  definition: ""
