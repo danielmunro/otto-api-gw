@@ -13,3 +13,5 @@ spec:
   type: service
   lifecycle: production
   owner: dev-team
+  providesApis:
+    - public-api
