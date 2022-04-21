@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: otto-api-gw
+  description: API gateway for otto backend
+  tags:
+    - javascript
+    - express
+  links:
+    - url: https://github.com/danielmunro/otto-api-gw
+      title: Git Repository
+spec:
+  type: service
+  lifecycle: production
+  owner: dev-team
