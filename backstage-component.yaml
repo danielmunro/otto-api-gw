@@ -15,3 +15,5 @@ spec:
   owner: dev-team
   consumesApis:
     - user-service
+    - community-service
+    - image-service
