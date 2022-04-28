@@ -14,6 +14,6 @@ spec:
   lifecycle: production
   owner: dev-team
   consumesApis:
-    - user-service
-    - community-service
-    - image-service
+    - user-service-api
+    - community-service-api
+    - image-service-api
