@@ -4,7 +4,6 @@ metadata:
   name: web-ingress
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-    nginx.ingress.kubernetes.io/cors-allow-origin: "http://localhost:3000, http://localhost"
 spec:
   defaultBackend:
     service:
