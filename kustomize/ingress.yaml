@@ -9,7 +9,7 @@ spec:
     service:
       name: api-gw
       port:
-        number: 80
+        number: 8000
   rules:
     - http:
         paths:
@@ -19,4 +19,4 @@ spec:
               service:
                 name: api-gw
                 port:
-                  number: 80
+                  number: 8000
