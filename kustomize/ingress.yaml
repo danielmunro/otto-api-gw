@@ -11,6 +11,7 @@ spec:
       name: api-gw
       port:
         number: 8000
+  ingressClassName: nginx
   rules:
     - host: thirdplaceapp.com
       http:
