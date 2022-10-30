@@ -20,16 +20,6 @@ spec:
             path: /
             backend:
               service:
-                name: ui
-                port:
-                  number: 3000
-    - host: api.thirdplaceapp.com
-      http:
-        paths:
-          - pathType: Prefix
-            path: /
-            backend:
-              service:
                 name: api-gw
                 port:
                   number: 8000
