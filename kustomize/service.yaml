@@ -8,5 +8,5 @@ spec:
     app: api-gw
   ports:
     - name: http
-      port: 8000
+      port: 80
       targetPort: 8000
