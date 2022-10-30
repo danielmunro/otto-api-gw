@@ -10,15 +10,8 @@ spec:
     - host: thirdplaceapp.com
       http:
         paths:
-          - pathType: Prefix
-            path: /
-            backend:
-              service:
-                name: api-gw
-                port:
-                  number: 8000
-          - pathType: Prefix
-            path: /signup
+          - pathType: ImplementationSpecific
+            path: /*
             backend:
               service:
                 name: api-gw
