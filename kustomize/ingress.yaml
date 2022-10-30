@@ -17,3 +17,10 @@ spec:
                 name: api-gw
                 port:
                   number: 8000
+          - pathType: Prefix
+            path: /signup
+            backend:
+              service:
+                name: api-gw
+                port:
+                  number: 8000
