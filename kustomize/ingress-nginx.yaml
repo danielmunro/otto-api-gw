@@ -4,12 +4,17 @@ metadata:
   name: web-ingress
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+#    cert-manager.io/issuer: "letsencrypt-prod"
 spec:
   defaultBackend:
     service:
       name: api-gw
       port:
         number: 8000
+  tls:
+    - hosts:
+        - thirdplaceapp.com
+        secretName: thirdplaceapp-com-tls
   rules:
     - http:
         paths:
