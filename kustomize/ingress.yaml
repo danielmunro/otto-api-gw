@@ -10,8 +10,7 @@ spec:
     - host: thirdplaceapp.com
       http:
         paths:
-          - pathType: Prefix
-            path: /*
+          - path: /
             backend:
               service:
                 name: api-gw
