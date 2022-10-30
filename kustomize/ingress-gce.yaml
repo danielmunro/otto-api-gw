@@ -8,11 +8,21 @@ metadata:
 spec:
   defaultBackend:
     service:
-      name: api-gw
+      name: ui
       port:
-        number: 8000
+        number: 3000
   rules:
     - host: thirdplaceapp.com
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: ui
+                port:
+                  number: 3000
+    - host: api.thirdplaceapp.com
       http:
         paths:
           - pathType: Prefix
