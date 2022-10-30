@@ -13,8 +13,7 @@ spec:
         number: 8000
   tls:
     - hosts:
-        - thirdplaceapp.com
-        secretName: thirdplaceapp-com-tls
+      - thirdplaceapp.com
   rules:
     - http:
         paths:
