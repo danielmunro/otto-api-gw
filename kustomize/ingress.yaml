@@ -3,8 +3,8 @@ kind: Ingress
 metadata:
   name: api-gw-ingress
   annotations:
-    kubernetes.io/ingress.class: "nginx"
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    networking.gke.io/managed-certificates: managed-cert
+    kubernetes.io/ingress.class: "gce"
 spec:
   rules:
     - host: thirdplaceapp.com
