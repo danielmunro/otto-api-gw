@@ -10,7 +10,9 @@ spec:
     - host: thirdplaceapp.com
       http:
         paths:
-          - backend:
+          - pathType: Prefix
+            path: /
+            backend:
               service:
                 name: ui
                 port:
@@ -18,7 +20,9 @@ spec:
     - host: api.thirdplaceapp.com
       http:
         paths:
-          - backend:
+          - pathType: Prefix
+            path: /
+            backend:
               service:
                 name: api-gw
                 port:
