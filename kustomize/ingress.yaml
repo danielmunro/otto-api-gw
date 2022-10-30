@@ -10,9 +10,7 @@ spec:
     - host: thirdplaceapp.com
       http:
         paths:
-          - pathType: ImplementationSpecific
-            path: /*
-            backend:
+          - backend:
               service:
                 name: api-gw
                 port:
