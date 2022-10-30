@@ -15,6 +15,7 @@ spec:
   tls:
     - hosts:
       - thirdplaceapp.com
+      secretName: "letsencrypt-prod"
   rules:
     - http:
         paths:
