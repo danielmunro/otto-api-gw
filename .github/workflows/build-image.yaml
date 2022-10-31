@@ -3,7 +3,7 @@ on:
     tags:
       - '*'
 jobs:
-  publish-gpr:
+  publish-docker-image:
     runs-on: ubuntu-latest
     permissions:
       packages: write
