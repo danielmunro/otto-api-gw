@@ -1,7 +1,7 @@
 on:
   push:
-    branches:
-      - main
+    tags:
+      - '*'
 jobs:
   publish-gpr:
     runs-on: ubuntu-latest
@@ -10,13 +10,7 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          registry-url: https://npm.pkg.github.com/
-      - run: npm ci
       - run: |
-          echo $CR_PAT | docker login ghcr.io -u danielmunro --password-stdin
-        env:
-          CR_PAT: ${{ secrets.CR_PAT }}
-      - run: docker build . --tag ghcr.io/danielmunro/otto-api-gw:latest
-      - run: docker push ghcr.io/danielmunro/otto-api-gw:latest
+          echo ${{ secrets.CR_PAT }} | docker login ghcr.io -u danielmunro --password-stdin
+      - run: docker build . --tag ghcr.io/danielmunro/otto-api-gw:${{ github.ref_name }}
+      - run: docker push ghcr.io/danielmunro/otto-api-gw:${{ github.ref_name }}
